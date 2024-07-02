@@ -1,0 +1,30 @@
+parameters:
+    gtp_translations_source_lang: 'nl'
+    gtp_translations_target_langs:
+        - 'fr'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # ---------------------------------------------------------
+    # Packages
+    # ---------------------------------------------------------
+
+    # ---------------------------------------------------------
+    # Actions
+    # ---------------------------------------------------------
+    Ntriga\PimcoreGPTTranslations\Actions\TranslateEmptyLocalizedFieldsAction:
+        arguments:
+            $sourceLang: '%gtp_translations_source_lang%'
+
+    # ---------------------------------------------------------
+    # Event listeners
+    # ---------------------------------------------------------
+
+    Ntriga\PimcoreGPTTranslations\EventListeners\ObjectTranslationsPreSaveListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.dataobject.preAdd, method: translateEmptyLocalizedFields }
+            - { name: kernel.event_listener, event: pimcore.dataobject.preUpdate, method: translateEmptyLocalizedFields }

@@ -1,0 +1,44 @@
+{
+    "name": "ntriga/pimcore-gpt-translations",
+    "version": "11.0.1",
+    "description": "Use Chat GPT in your Pimcore project to translate documents and objects.",
+    "keywords": [
+        "ntriga",
+        "pimcore",
+        "GPT"
+    ],
+    "homepage": "https://github.com/ntriga/pimcore-gpt-translations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joey Daems",
+            "email": "joey@ntriga.agency",
+            "role": "Developer"
+        },
+        {
+            "name": "Vincent Bibauw",
+            "email": "vincent@ntriga.agency",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "openai-php/symfony": "^0.10.0",
+        "pimcore/pimcore": "^11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ntriga\\PimcoreGPTTranslations\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
