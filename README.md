@@ -1,0 +1,1 @@
+# pimcore-gpt-translations
